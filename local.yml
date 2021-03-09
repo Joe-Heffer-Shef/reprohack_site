@@ -60,35 +60,35 @@ services:
     image: redis:5.0
     container_name: redis
 
-  celeryworker:
-    <<: *django
-    image: reprohack_hub_local_celeryworker
-    container_name: celeryworker
-    depends_on:
-      - redis
-      - postgres
-      - mailhog
-    ports: []
-    command: /start-celeryworker
+#  celeryworker:
+#    <<: *django
+#    image: reprohack_hub_local_celeryworker
+#    container_name: celeryworker
+#    depends_on:
+#      - redis
+#      - postgres
+#      - mailhog
+#    ports: []
+#    command: /start-celeryworker
 
-  celerybeat:
-    <<: *django
-    image: reprohack_hub_local_celerybeat
-    container_name: celerybeat
-    depends_on:
-      - redis
-      - postgres
-      - mailhog
-    ports: []
-    command: /start-celerybeat
+#  celerybeat:
+#    <<: *django
+#    image: reprohack_hub_local_celerybeat
+#    container_name: celerybeat
+#    depends_on:
+#      - redis
+#      - postgres
+#      - mailhog
+#    ports: []
+#    command: /start-celerybeat
 
-  flower:
-    <<: *django
-    image: reprohack_hub_local_flower
-    container_name: flower
-    ports:
-      - "5555:5555"
-    command: /start-flower
+#  flower:
+#    <<: *django
+#    image: reprohack_hub_local_flower
+#    container_name: flower
+#    ports:
+#      - "5555:5555"
+#    command: /start-flower
 
   node:
     build:
