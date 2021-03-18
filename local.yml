@@ -22,6 +22,8 @@ services:
     ports:
       - "8000:8000"
     command: /start
+    secrets:
+      - database_url
 
   postgres:
     build:
@@ -107,3 +109,7 @@ services:
       - "3000:3000"
       # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
       - "3001:3001"
+
+secrets:
+  database_url:
+    file: secrets/database_url.txt
